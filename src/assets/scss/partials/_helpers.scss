@@ -1,0 +1,130 @@
+/*----------------------*\
+    #HELPER CLASSES
+\*----------------------*/
+
+ ::-moz-selection {
+    background: $color-selection;
+    text-shadow: none;
+}
+
+::selection {
+    background: $color-selection;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    @include rem('height', 1px);
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: $baseline 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/*
+ * Old browser update message - styling.
+ */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/*
+ * hides an element.
+ */
+
+.m--h {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Floats
+ */
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+/*
+ * Misc helpers
+ */
+
+.has-margin {
+    margin-bottom: $baseline;
+}
+
+.is-block {
+    display: block;
+}
+
+.has-no-margin {
+    margin-bottom: 0;
+}
+
+.is-unstyled {
+    list-style-type: none;
+}
+
+.is-uppercase {
+    text-transform: uppercase;
+}
+
+/*
+ * Clearfix
+ */
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    *zoom: 1;
+}

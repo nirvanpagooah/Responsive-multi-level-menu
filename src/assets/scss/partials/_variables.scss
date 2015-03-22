@@ -1,0 +1,27 @@
+/*---------------------------------------*\
+    #SITE-WIDE CONFIGURATION VARIABLES
+\*---------------------------------------*/
+
+// Colors
+$color-primary: #444444;
+$color-secondary: #222222;
+$color-selection: #FF0000;
+
+// Font stacks
+$font-a: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-b: Georgia, Times, "Times New Roman", serif;
+
+$font-sans: $font-a, sans-serif; 
+$font-serif: $font-b, serif; 
+
+// Units
+$base-font-size: 100%;
+$base-font-size-px: 16px;
+$baseline-unitless: 24/(16*($base-font-size/100%));
+$baseline: $baseline-unitless * 1rem;
+
+// Misc
+$container-max: 540px;
+
+//breakpoints
+$tablet: new-breakpoint(max-width 768px 12);

@@ -1,0 +1,72 @@
+/*------------------------*\
+    #HELPFUL SASS MIXINS
+\*------------------------*/
+
+//Function to strip unit from values
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function parseInt($n) { 
+  @return $n / ($n * 0 + 1);
+}
+
+@function torem($size) {
+  $remSize: $size / $base-font-size-px;
+  @return #{$remSize}rem;
+}
+
+//convert to rem with fallback
+@mixin rem($property, $values) {
+  $px : ();
+  $rem: (); 
+  
+  @each $value in $values { 
+   
+    @if $value == 0 or $value == auto { 
+      $px : append($px , $value);
+      $rem: append($rem, $value);
+    }
+    
+    @else { 
+      $unit: unit($value); 
+      $val: parseInt($value); 
+      
+      @if $unit == "px" {
+        $px : append($px,  $value);
+        $rem: append($rem, ($val / strip-unit($base-font-size-px) + rem));
+      }
+      
+      @if $unit == "rem" {
+        $px : append($px,  ($val * strip-unit($base-font-size-px) + px));
+        $rem: append($rem, $value);
+      }
+    }
+  }
+  
+  @if $px == $rem { 
+    #{$property}: $px; 
+  } @else {
+    #{$property}: $px; 
+    #{$property}: $rem; 
+  }
+}
+
+//Retina background image
+@mixin background-image-retina($file, $type, $width, $height) {
+  background-image: url($file + '.' + $type);
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (-moz-min-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx){
+    & {
+      background-image: url($file + '@2x.' + $type);
+      -webkit-background-size: $width $height;
+      -moz-background-size: $width $height;
+      -o-background-size: $width $height;
+      background-size: $width $height;
+    }
+  }
+}

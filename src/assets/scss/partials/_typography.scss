@@ -1,0 +1,41 @@
+/*-------------------------*\
+    #TYPOGRAPHY STYLES
+\*-------------------------*/
+
+h1, 
+.alpha { 
+	@include rem('font-size', 48px); 
+	line-height: 1;
+	font-family: $font-sans;
+	font-weight: 900;
+}
+
+h2, 
+.beta { 
+	@include rem('font-size', 36px); 
+	font-family: $font-sans;
+	font-weight: 700;
+}
+
+h3, 
+.gamma { 
+	@include rem('font-size', 28px);
+	font-family: $font-sans; 
+	font-weight: 700;
+}
+
+h4, 
+.delta { 
+	@include rem('font-size', 18px);
+	font-family: $font-sans; 
+	font-weight: 400;
+}
+
+small,
+.small {
+	@include rem('font-size', 14px);
+}
+
+.font-sans {
+	font-family: $font-sans;
+}

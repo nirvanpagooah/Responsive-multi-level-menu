@@ -1,0 +1,16 @@
+/*---------------------------*\
+    #GENERAL STYLES
+\*---------------------------*/
+
+.container {
+	@include rem('max-width', $container-max);
+	margin: 0 auto;
+	@include rem('padding', 0 20px);
+	&:before, &:after {
+		content: " ";
+	    display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}

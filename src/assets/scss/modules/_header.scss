@@ -1,0 +1,147 @@
+/*---------------------------*\
+    #HEADER STYLES
+\*---------------------------*/
+
+nav {
+  background: #2AFC98;
+  display: block; 
+  width: 100%;
+  @include rem("height", 45px);
+}
+
+.hero {
+  @include rem("font-size", 30px);
+  color: #ddd;
+  @include rem("margin", 50px 0);
+}
+
+header {
+  ul {
+    list-style-type: none;
+    list-style-position: inside;
+  }
+}
+
+p {
+  color: #bbb;
+  font-family: $font-sans;
+  @include rem("margin-top", 50px);
+}
+
+.navigation {
+  li {
+    position: relative;
+    float: left;
+    @include rem("padding", 10px);
+    @include rem("padding-bottom", 10px); //increase hover zone
+    
+    &:first-child {
+      @include rem("padding-left", 20px);
+      @include media($tablet) {
+        @include rem("padding-left", 10px);
+      }
+    }
+
+    &:last-child {
+      @include rem("padding-right", 20px);
+      @include media($tablet) {
+        @include rem("padding-right", 10px);
+      }
+    }
+
+    &:hover {
+      background: shade(#2AFC98, 15%);
+      .sub-navigation { display: block; }
+    }
+
+    @include media($tablet) {
+      float: none;
+    }
+
+  }
+
+  a {
+    color: shade(#2AFC98, 75%);
+    text-decoration: none;
+    font-family: $font-sans;
+    font-weight: 500;
+    text-shadow: 1px solid shade(#2AFC98, 85%);
+  }
+
+  @include media($tablet) {
+    display: none;
+  }
+
+}
+
+.sub-navigation {
+  display: none;
+  position: absolute;
+  top: 45px;
+  left: -20px;
+  background: #16C172;
+  @include rem("width", 200px);
+  @include media($tablet) {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    width: auto;
+    padding: 0;
+    background: none;
+  }
+  li {
+    float: none;
+
+    &:first-child {
+      @include rem("padding-left", 10px);
+    }
+
+    &:last-child {
+      @include rem("padding-right", 10px);
+    }
+
+    &:last-child {
+      @include media($tablet) {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  a {
+    color: shade(#16C172, 75%);
+    text-shadow: 1px solid shade(#16C172, 85%);
+  }
+}
+
+.btn-menu {
+  display: none;
+  font-family: $font-sans;
+  font-weight: 500;
+  text-transform: uppercase;
+  @include rem("padding", 10px);
+  background: url("../img/menu.png");
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  background-position: center right;
+  cursor: pointer;
+  width: 97%;
+  text-align: left;
+
+  &:focus, &:active {
+    outline: 0;
+  }
+
+  @include media($tablet) {
+    display: block;
+  }
+}
+
+.menu-open {
+  @include media($tablet) {
+     height: auto;
+    .navigation { 
+      display: block; 
+    }
+  }
+}
